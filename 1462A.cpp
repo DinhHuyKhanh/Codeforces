@@ -1,38 +1,26 @@
 #include <bits/stdc++.h>
-
+/**
+* @author: huykhanh
+* @create:
+**/
 using namespace std;
+using ll = long long;
+using uint = uint64_t;
 
 void solve()
 {
-    string s,res="";
     int n;
     cin>>n;
-    cin>>s;
-
-    if(s=="2020"){
-        cout<<"YES\n";
-        return;
-    }else if(s[0]=='2' && s[1]=='0'  && s[2]=='2'  && s[3]=='0'){
-        cout<<"YES\n";
-        return;
-    }else if(s[s.size()-4]=='2' && s[s.size()-3]=='0'  && s[s.size()-2]=='2'  && s[s.size()-1]=='0'){
-        cout<<"YES\n";
-        return;
+    vector<int> a(n);
+    for(int i=0;i<n;i++){
+        cin>>a[i];
     }
 
-    for(int i=0;i<4;i++){
-        res+=s[i];
-        string sul=res;
-     for(int j=s.size()-3+i;j<s.size();j++){
-        sul+=s[j];
-     }
-        if(res=="2020" || sul=="2020"){
-            cout<<"YES\n";
-            return;
-        }
+    for(int i=0;i<n/2;i++){
+        cout<<a[i]<<" "<<a[n-i-1]<<" ";
     }
-    cout<<"NO\n";
-    return;
+    if(n&1) cout<<a[n/2];
+    cout<<endl;
 }
 int main() {
     ios::sync_with_stdio(false);
@@ -41,6 +29,5 @@ int main() {
     int t;
     cin>>t;
     while(t--) solve();
-
 return 0;
 }

@@ -1,24 +1,32 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
+using ll = long long;
 
-int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    int n,x;
+void solve()
+{
+    int n,x,chan,le;
     cin>>n;
     map<int,int> mp;
-    int chan,le;
     for(int i=0;i<n;i++){
         cin>>x;
         mp[x%2]++;
-        if(x%2==0){
-            chan=i+1;
-        }else le=i+1;
+        if(x%2==0) chan=i;
+        else{
+            le=i;
+        }
     }
-    if(mp[0]==1) cout<<chan;
-    else cout<<le;
+    if(mp[0]==1){
+        cout<<chan+1;
+    }else{
+        cout<<le+1;
+    }
+}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    solve();
 
 return 0;
 }
